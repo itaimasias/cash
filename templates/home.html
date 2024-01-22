@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Showcase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Video Showcase</h1>
+
+    <form action="{{ url_for('home') }}" method="post">
+        <label for="code">Enter Code:</label>
+        <input type="text" id="code" name="code" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if code_valid %}
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
